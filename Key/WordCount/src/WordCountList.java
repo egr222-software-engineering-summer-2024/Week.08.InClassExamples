@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-// From Video 11-1 (Code Along 11-A)
+// From The List Collection Code Along
 public class WordCountList {
     public static void main(String[] args) throws FileNotFoundException {
         // read file into a map of [word --> number of occurrences]
@@ -38,25 +38,26 @@ public class WordCountList {
         }
     }
 
-    // This method was created as part of video 11-1 (Code Along 11-A).
+    // This method was created as part of the List Collection Code Along.
     // There is an error in the video.  The author in the video types list.size() instead of words.size()
     // He never gets a compiler error because he never attempts to execute the code.
     // This particular example has a corrected version
     public static void everyOther(List<String> words) {
-//      using remove on a LinkedList without an iterator is SLOW because the list must be traversed from the front every time through the loop
-        for (int i = 0; i < words.size(); i++) {
-            words.remove(i);    // slow for a linked list - takes about 3-4 minutes
-        }
+//      using remove on a LinkedList without an iterator is SLOW because the
+//      list must be traversed from the front every time through the loop
+//        for (int i = 0; i < words.size(); i++) {    // removes every OTHER word because of how it is iterating
+//            words.remove(i);    // slow for a linked list - takes about 3-4 minutes
+//        }
 
 //      Using an iterator is very fast because the iterator remembers where we are each time through and only has to traverse one element to get to the next element
-//        Iterator<String> itr = words.iterator();
-//        while (itr.hasNext()) {
-//            itr.next();
-//            if(itr.hasNext()) {
-//                itr.remove();
-//                itr.next();
-//            }
-//        }
+        Iterator<String> itr = words.iterator();
+        while (itr.hasNext()) {
+            itr.next();
+            if(itr.hasNext()) {
+                itr.remove();
+                itr.next();
+            }
+        }
     }
 
     public static void readfile(Scanner input, List<String> words) {

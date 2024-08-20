@@ -12,13 +12,16 @@ public class KeySetDemo {
             int age = ages.get(name);               // Marty->19
             System.out.println(name + "->" + age);  // Vicki->57
         }
+        System.out.println("Remove James");
         ages.remove("James");
         System.out.println(ages);
         System.out.println(ages.values());
         System.out.println(ages.containsValue(19));
+        System.out.println("Remove John");
         ages.remove("John");
         System.out.println(ages);
         System.out.println(ages.containsValue(19));
+        System.out.println("Remove Marty");
         ages.remove("Marty");
         System.out.println(ages);
         System.out.println(ages.containsValue(19));
